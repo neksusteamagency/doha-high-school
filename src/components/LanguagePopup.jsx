@@ -66,7 +66,7 @@ export default function LanguagePopup({ onChoose }) {
             className={`lang-btn ${chosen === 'AR' ? 'chosen' : ''}`}
             onClick={() => handleChoose('AR')}
           >
-            <span className="lang-btn-flag">🇶🇦</span>
+            <span className="lang-btn-flag">🇱🇧</span>
             <span className="lang-btn-name">{translations.EN.ar}</span>
             <span className="lang-btn-sub">{translations.EN.arSub}</span>
           </button>
