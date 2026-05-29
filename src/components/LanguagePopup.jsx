@@ -37,17 +37,16 @@ export default function LanguagePopup({ onChoose }) {
         <div className="lang-bg-overlay" />
       </div>
       <div className={`lang-card ${animating ? 'card-shrink' : ''}`}>
-        <div className="lang-logo">
-          <div className="lang-logo-emblem">
-            <svg viewBox="0 0 60 60" width="60" height="60">
-              <circle cx="30" cy="30" r="28" fill="none" stroke="#c9a84c" strokeWidth="2"/>
-              <circle cx="30" cy="30" r="22" fill="none" stroke="#c9a84c" strokeWidth="0.5" strokeDasharray="2 4"/>
-              <text x="30" y="24" textAnchor="middle" fill="#c9a84c" fontSize="10" fontFamily="Playfair Display,serif" fontWeight="700">DHS</text>
-              <path d="M18 32 Q30 26 42 32" stroke="#c9a84c" strokeWidth="1.5" fill="none"/>
-              <path d="M20 38 Q30 34 40 38" stroke="#c9a84c" strokeWidth="1" fill="none"/>
-            </svg>
-          </div>
-        </div>
+{/* Find this block in LanguagePopup.jsx and replace it: */}
+<div className="lang-logo">
+  <div className="lang-logo-emblem">
+    <img 
+      src="/logo-removebg-preview.png" 
+      alt="Doha High School Crest" 
+      className="lang-img-logo" 
+    />
+  </div>
+</div>
         <p className="lang-welcome">{translations.EN.welcome}</p>
         <h1 className="lang-school-name">{translations.EN.school}</h1>
         <div className="lang-divider" />
