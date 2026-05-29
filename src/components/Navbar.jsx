@@ -45,14 +45,14 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
         <div className="navbar-inner">
           <Link to="/" className="navbar-brand">
-            <div className="brand-emblem">
-              <svg viewBox="0 0 40 40" width="40" height="40">
-                <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                <text x="20" y="16" textAnchor="middle" fill="currentColor" fontSize="7" fontFamily="Playfair Display,serif" fontWeight="700">DHS</text>
-                <path d="M10 22 Q20 17 30 22" stroke="currentColor" strokeWidth="1.2" fill="none"/>
-                <path d="M12 27 Q20 24 28 27" stroke="currentColor" strokeWidth="0.8" fill="none"/>
-              </svg>
-            </div>
+{/* Find this block in Navbar.jsx and replace it: */}
+<div className="brand-emblem">
+  <img 
+    src="/logo-removebg-preview.png" 
+    alt={`${txt.school} Logo`} 
+    className="navbar-img-logo" 
+  />
+</div>
             <div className="brand-text">
               <span className="brand-name">{txt.school}</span>
               <span className="brand-tagline">{txt.tagline}</span>

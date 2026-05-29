@@ -147,3 +147,78 @@
   .btn-nav-cta { margin-left: 0; width: 100%; text-align: center; display: block; }
   .navbar-inner { padding: 0 20px; }
 }
+
+
+/* ─── NEW CREST CONTAINER STYLES ─── */
+.brand-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;         /* Balanced perfectly for corporate/academic headers */
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.3); /* Subtle gold accent trim ring */
+  padding: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .brand-emblem {
+  transform: scale(1.05);
+}
+
+.navbar-img-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ─── RTL SUPPORT FOR NAVBAR ─── */
+.rtl .navbar-inner {
+  flex-direction: row-reverse;
+}
+
+.rtl .navbar-brand {
+  flex-direction: row-reverse; /* Flips image on right, text on left */
+}
+
+.rtl .brand-text {
+  align-items: flex-end;      /* Right aligns texts */
+}
+
+.rtl .brand-name,
+.rtl .brand-tagline {
+  text-align: right;
+}
+
+.rtl .navbar-links {
+  flex-direction: row-reverse; /* Orders links from right to left naturally */
+}
+
+.rtl .btn-nav-cta {
+  margin-left: 0;
+  margin-right: 10px;          /* Shifts spacing constraint matching layout inversion */
+}
+
+/* Responsive mobile RTL corrections */
+@media (max-width: 900px) {
+  .rtl .navbar-links {
+    position: fixed;
+    top: 0; 
+    left: -100%;               /* Drawers slide out from the left on RTL devices */
+    right: auto;
+    flex-direction: column;
+    align-items: flex-end;     /* Links right align inside the flyout panel */
+    border-left: none;
+    border-right: 1px solid rgba(201, 168, 76, 0.2);
+    transition: left 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .rtl .navbar-links.open {
+    left: 0;
+    right: auto;
+  }
+  .rtl .nav-link {
+    text-align: right;
+  }
+}

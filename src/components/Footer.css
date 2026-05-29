@@ -75,11 +75,20 @@
 }
 
 /* ─── SOCIAL ─── */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .social-icons {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 12px;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .social-icon {
@@ -260,15 +269,84 @@
 }
 
 /* ─── RTL SUPPORT ─── */
+
+/* Flip the entire grid order */
+.rtl .footer-grid { direction: rtl; }
+
+/* Brand column — push everything to the right */
+.rtl .footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+.rtl .footer-logo {
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: flex-end;
+}
+.rtl .footer-school-name { text-align: right; }
+.rtl .footer-school-since { text-align: right; letter-spacing: 0; }
+.rtl .footer-desc { text-align: right; max-width: 100%; width: 100%; }
+
+/* Social section — align to the right */
+.rtl .footer-social {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  direction: rtl; /* Formats layout calculations to run from right to left */
+}
+.rtl .social-icons { 
+  justify-content: flex-start; /* 'start' natively maps to the right edge under RTL */
+  width: 100%; 
+  margin-top: 12px; 
+}
+
+/* All column titles — underline on the right */
+.rtl .footer-col-title { text-align: right; letter-spacing: 0; width: 100%; }
 .rtl .footer-col-title::after { left: auto; right: 0; }
-.rtl .footer-links li a { flex-direction: row-reverse; }
-.rtl .footer-links li a:hover { padding-left: 0; padding-right: 14px; }
-.rtl .footer-links li a::before { content: '‹'; left: auto; right: 0; }
-.rtl .footer-contact-item { flex-direction: row-reverse; text-align: right; }
+
+/* Quick links column — align everything right */
+.rtl .footer-col { display: flex; flex-direction: column; align-items: flex-end; }
+.rtl .footer-links { align-items: flex-end; width: 100%; }
+.rtl .footer-links li { width: 100%; text-align: right; }
+.rtl .footer-links li a {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  width: 100%;
+}
+.rtl .footer-links li a::before {
+  content: '‹';
+  transform: translateX(6px);
+}
+.rtl .footer-links li a:hover {
+  padding-left: 0;
+  padding-right: 14px;
+}
+.rtl .footer-links li a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+  position: absolute;
+  left: auto;
+  right: 0;
+}
+
+/* Contact items — icon on right, text right-aligned */
+.rtl .footer-contact-items { display: flex; flex-direction: column; align-items: flex-end; width: 100%; }
+.rtl .footer-contact-item {
+  flex-direction: row-reverse;
+  text-align: right;
+  width: 100%;
+  justify-content: flex-end;
+}
+.rtl .footer-contact-item div { text-align: right; }
+.rtl .footer-contact-item strong { text-align: right; }
+
+/* Bottom bar */
 .rtl .footer-bottom-inner { flex-direction: row-reverse; }
-.rtl .footer-logo { flex-direction: row-reverse; }
-.rtl .footer-school-since { text-align: right; }
-.rtl .footer-desc { text-align: right; }
+.rtl .footer-bottom p { text-align: right; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
@@ -291,4 +369,54 @@
   .footer-brand-col { grid-column: auto; }
   .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
   .rtl .footer-bottom-inner { align-items: flex-end; }
+}
+
+
+/* ... existing brand styles ... */
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* ─── BRAND LOGO IMAGE BACKDROP ─── */
+.footer-logo-img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  
+  /* Blends smoothly into the background, providing a subtle texture layer */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(201, 168, 76, 0.25); /* Elegant gold accent border line */
+
+  padding: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-img-wrapper:hover {
+  transform: scale(1.04);
+}
+
+.footer-img-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Flips geometry flawlessly on RTL layouts */
+.rtl .footer-logo-img-wrapper {
+  margin-left: 0;
+}
+
+.rtl .footer-logo {
+  flex-direction: row; /* Let RTL engine handle the order naturally */
+  width: 100%;
+  justify-content: flex-start; /* Start means the right side now */
 }

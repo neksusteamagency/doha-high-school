@@ -7,15 +7,23 @@ import './HomePage.css';
 
 const stats = [
   { numEN: '35+', numAR: '+35', labelKey: 'yearsExcellence' },
-  { numEN: '5,000+', numAR: '+12,000', labelKey: 'graduates' },
+  { numEN: '5000+', numAR: '+5000', labelKey: 'graduates' },
   { numEN: '100+', numAR: '+100', labelKey: 'faculty' },
   { numEN: '24+', numAR: '+24', labelKey: 'programs' },
-
 ];
 
-
-
 const programIcons = ['⚗️','📚','🎨','💻','🌐','⚽'];
+
+const galleryImages = [
+  '/x3.jpeg',
+  '/grade6.jpeg',
+  '/seniors3.png',
+  '/class2.jpg',
+  '/x1.jpeg',
+  '/x2.jpeg',
+  '/playground.jpg',
+  '/x44.png',
+];
 
 function CountUp({ target, duration = 2000 }) {
   const [count, setCount] = useState(0);
@@ -50,6 +58,7 @@ export default function HomePage() {
   const { lang } = useContext(LangContext);
   const txt = translations[lang] || translations.EN;
   const [heroLoaded, setHeroLoaded] = useState(false);
+  const isRTL = lang === 'AR';
   useReveal();
 
   useEffect(() => {
@@ -155,14 +164,14 @@ export default function HomePage() {
               <div className="portrait-frame">
                 <img src="nabil.jpeg" alt="Founder" />
               </div>
-              <div className="portrait-emblem">
-                <svg viewBox="0 0 60 60" width="60" height="60">
-                  <circle cx="30" cy="30" r="28" fill="none" stroke="#c9a84c" strokeWidth="1.5"/>
-                  <text x="30" y="24" textAnchor="middle" fill="#c9a84c" fontSize="8" fontFamily="Playfair Display,serif" fontWeight="700">DHS</text>
-                  <path d="M16 32 Q30 26 44 32" stroke="#c9a84c" strokeWidth="1.2" fill="none"/>
-                  <path d="M19 38 Q30 34 41 38" stroke="#c9a84c" strokeWidth="0.8" fill="none"/>
-                </svg>
-              </div>
+                {/* Find this block and replace it: */}
+                <div className="portrait-emblem">
+                  <img 
+                    src="/logo-removebg-preview.png" 
+                    alt="School Logo" 
+                    className="portrait-emblem-logo" 
+                  />
+                </div>
             </div>
             <div className="founder-text reveal-right">
               <span className="section-label">{txt.founderLabel}</span>
@@ -205,27 +214,14 @@ export default function HomePage() {
 
       {/* ── GALLERY STRIP ── */}
       <section className="gallery-strip">
-<div className="gallery-track">
-  {[
-    '/x3.jpeg',
-    '/grade6.jpeg',
-    '/seniors3.png',
-    '/class2.jpg',
-    '/x1.jpeg',
-    '/x2.jpeg',
-      '/playground.jpg',
-    '/x44.png',
-
-
-  ].map((src, i) => (
+        <div className={`gallery-track${isRTL ? ' gallery-track-rtl' : ''}`}>
+          {[...galleryImages, ...galleryImages].map((src, i) => (
             <div className="gallery-img-wrap" key={i}>
               <img src={src} alt={`School life ${i + 1}`} />
             </div>
           ))}
         </div>
       </section>
-
-   
 
       {/* ── ADMISSIONS CTA ── */}
       <section className="admissions-cta">

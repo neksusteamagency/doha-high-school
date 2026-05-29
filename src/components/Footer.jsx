@@ -9,8 +9,8 @@ const t = {
     tagline: 'Shaping Leaders, Inspiring Excellence',
     desc: 'Committed to academic excellence and holistic development of every student since 1989. We nurture minds and build character.',
     quickLinks: 'Quick Links', contactUs: 'Contact Us', followUs: 'Follow Us',
-    home: 'Home', about: 'About Us', academics: 'Academics', admissions: 'Admissions'
-    , contact: 'Contact',
+    home: 'Home', about: 'About Us', academics: 'Academics', admissions: 'Admissions',
+    contact: 'Contact',
     rights: 'All Rights Reserved', since: 'Excellence in Education Since 1989',
     address: 'Dohat El Hoss, Mount Lebanon, Lebanon',
     phone1: '+961 71 415 411', 
@@ -23,7 +23,7 @@ const t = {
     desc: 'ملتزمون بالتميز الأكاديمي والتنمية الشاملة لكل طالب منذ عام 1989.',
     quickLinks: 'روابط سريعة', contactUs: 'اتصل بنا', followUs: 'تابعنا',
     home: 'الرئيسية', about: 'من نحن', academics: 'الأكاديميات', admissions: 'القبول',
-     contact: 'تواصل معنا', 
+    contact: 'تواصل معنا', 
     rights: 'جميع الحقوق محفوظة', since: 'تميز في التعليم منذ 1989',
     address: 'الدوحة الحص، جبل لبنان، لبنان',
     phone1: '411 415 71 961+',
@@ -35,28 +35,32 @@ const t = {
 export default function Footer() {
   const { lang } = useContext(LangContext);
   const txt = t[lang] || t.EN;
-  const year = new Date().getFullYear() ;
+  const year = new Date().getFullYear();
+  const isRTL = lang === 'AR';
 
   return (
-    <footer className="footer">
+    <footer className={`footer${isRTL ? ' rtl' : ''}`}>
       <div className="footer-top">
         <div className="container">
           <div className="footer-grid">
             {/* Brand */}
             <div className="footer-brand-col">
               <div className="footer-logo">
-                <svg viewBox="0 0 50 50" width="50" height="50">
-                  <circle cx="25" cy="25" r="22" fill="none" stroke="#c9a84c" strokeWidth="1.5"/>
-                  <text x="25" y="21" textAnchor="middle" fill="#c9a84c" fontSize="8" fontFamily="Playfair Display,serif" fontWeight="700">DHS</text>
-                  <path d="M14 28 Q25 22 36 28" stroke="#c9a84c" strokeWidth="1.2" fill="none"/>
-                  <path d="M16 34 Q25 30 34 34" stroke="#c9a84c" strokeWidth="0.8" fill="none"/>
-                </svg>
+                <div className="footer-logo-img-wrapper">
+                  {/* DIRECT PUBLIC CALL OVERRIDE */}
+<img 
+  src="/logo-removebg-preview.png" 
+  alt={`${txt.school} Logo`} 
+  className="footer-img-logo" 
+/>
+                </div>
                 <div>
                   <div className="footer-school-name">{txt.school}</div>
                   <div className="footer-school-since">{txt.since}</div>
                 </div>
               </div>
               <p className="footer-desc">{txt.desc}</p>
+              
               <div className="footer-social">
                 <p className="footer-col-title">{txt.followUs}</p>
                 <div className="social-icons">
@@ -122,11 +126,6 @@ export default function Footer() {
         <div className="container">
           <div className="footer-bottom-inner">
             <p>© {year} {txt.school}. {txt.rights}.</p>
-           {/* <div className="footer-bottom-links">
-              <a href="#">{txt.privacy}</a>
-              <span className="footer-sep">·</span>
-              <a href="#">{txt.terms}</a>
-            </div>  */}
           </div>
         </div>
       </div>
