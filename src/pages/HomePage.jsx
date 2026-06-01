@@ -127,7 +127,7 @@ export default function HomePage() {
           <div className="about-grid">
             <div className="about-images reveal-left">
               <div className="about-img-main">
-                <img src="lesson.jpg" alt="Students" />
+                <img src="class4.png" alt="Students" />
               </div>
               <div className="about-img-accent">
                 <img src="class2.jpg" alt="School building" />

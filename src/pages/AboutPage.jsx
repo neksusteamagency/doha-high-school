@@ -17,6 +17,8 @@ const milestones = [
   { year: '2010', enText: 'Adoption of the Institut Français DELF Program', arText: 'DELF اعتماد البرنامج الفرنسي   ' },
   { year: '2012', enText: ' Teachers Trained in the SELF Program', arText:   ' SELF تم تدريب المعلمين على برنامج ' },
   { year: '2018', enText: 'Inclusion of Students with Learning Disabilities in Mainstream Classes', arText: 'إدماج الطلاب ذوي صعوبات التعلم في الفصول الدراسية العادية  ' },
+  { year: '2026', enText: ' Collaboration with Balamand University', arText:   ' التعاون مع جامعة البلمند ' },
+
 ];
 
 export default function AboutPage() {
@@ -54,7 +56,7 @@ export default function AboutPage() {
               <p style={{ marginTop: '20px' }}>{txt.aboutText2}</p>
             </div>
             <div className="mission-img reveal-right">
-              <img src="lesson.jpg" alt="Students learning" />
+              <img src="class4.png" alt="Students learning" />
               <div className="mission-img-accent">
                 <img src="students2.png" alt="Classroom" />
               </div>
@@ -107,7 +109,7 @@ export default function AboutPage() {
               <blockquote className="about-founder-quote">{txt.founderQuote}</blockquote>
               <p className="founder-bio-full">{txt.founderText}</p>
               <div className="founder-stats-row">
-                <div className="f-stat"><span className="f-stat-num">34</span><span className="f-stat-label">{isAR ? 'سنة من القيادة' : 'Years of Leadership'}</span></div>
+                <div className="f-stat"><span className="f-stat-num">37</span><span className="f-stat-label">{isAR ? 'سنة من القيادة' : 'Years of Leadership'}</span></div>
                 <div className="f-stat"><span className="f-stat-num">2,000+</span><span className="f-stat-label">{isAR ? 'طالب في عهده' : 'Students Under His Watch'}</span></div>
                 <div className="f-stat"><span className="f-stat-num">1989</span><span className="f-stat-label">{isAR ? 'سنة التأسيس' : 'Year of Founding'}</span></div>
               </div>
@@ -149,9 +151,9 @@ export default function AboutPage() {
           </div>
           <div className="leadership-grid">
             {[
-{ img: '/ayoub3.png', enName: 'Mr. Ayyoub Al Jurdi', arName: 'أ. أيوب الجردي', enRole: 'Principal', arRole: 'المدير العام' },
-              { img:'/diana2.png', enName: 'Mrs. Diana Al Jurdi', arName: 'أ. ديانا الجردي', enRole: 'Vice Principal – Academics', arRole: 'نائب المدير – الأكاديميات' },
-              { img: '/nidal-al-jurdi.png', enName: 'Mr. Nidal Al Jurdi', arName: 'أ. نضال الجردي', enRole: 'Legal Consultant', arRole: 'مستشار قانوني' }
+              { img: '/ayoub3.png', enName: 'Mr. Ayyoub Al Jurdi', arName: 'أ. أيوب الجردي', enRole: 'Principal', arRole: 'المدير العام' },
+              { img:'/diana33.png', enName: 'Mrs. Diana Al Jurdi', arName: 'أ. ديانا الجردي', enRole: 'Vice Principal – Academics', arRole: 'نائب المدير – الأكاديميات' },
+              { img: '/nidal-al-jurdi.jpeg', enName: 'Mr. Nidal Al Jurdi', arName: 'أ. نضال الجردي', enRole: 'Legal Consultant', arRole: 'مستشار قانوني' }
             ].map((p, i) => (
               <div className={`leader-card reveal delay-${i + 1}`} key={i}>
                 <div className="leader-img">
