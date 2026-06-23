@@ -129,7 +129,7 @@
   .hamburger { display: flex; }
   .navbar-links {
     position: fixed;
-    top: 0; right: -100%;
+    top: 0; right: -300vw;
     width: 280px; height: 100vh;
     background: #0e1450;
     flex-direction: column;
